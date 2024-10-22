@@ -7,4 +7,3 @@ php bin/console importmap
 
 ## Deploy assets (public folder)
 php bin/console asset-map:compile
-
