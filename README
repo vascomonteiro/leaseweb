@@ -1,0 +1,2 @@
+php bin/console importmap:require datatables.net-dt
+php bin/console asset-map:compile

@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  webserver:
+    build: ./docker/php/.
+    container_name: php
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - "./site/:/var/www/html/"
+      - "./docker/php/000-default.conf:/etc/apache2/sites-available/000-default.conf"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
