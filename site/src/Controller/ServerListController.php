@@ -19,7 +19,7 @@ class ServerListController extends AbstractController
         return $this->render('server_list/server_list.html.twig');
     }
 
-    #[Route('/server/upload', name: 'file_upload', methods: ['GET', 'POST'])]
+    #[Route(['/server/upload', '/'], name: 'file_upload', methods: ['GET', 'POST'])]
     public function serverUploadFile(Request $request): Response
     {
         $form = $this->createForm(FileUploadType::class);
@@ -39,7 +39,7 @@ class ServerListController extends AbstractController
 
                     $this->addFlash('success', 'File uploaded successfully!');
                 } catch (FileException $e) {
-                    $this->addFlash('error', 'Failed to upload the file.');
+                    $this->addFlash('error', 'Failed to upload the file, check folder permissions');
                 }
             }
         }
