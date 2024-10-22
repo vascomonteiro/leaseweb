@@ -1,0 +1,16 @@
+body {
+    background-color: lightgray;
+}
+
+div.dt-container .dt-paging .dt-paging-button{
+    padding:0!important;
+}
+
+.form-label {
+    margin-top: 1.5rem;
+}
+
+.btn-check{
+    padding: 5px!important;
+    margin: 5px!important;
+}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Server list{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+{% endblock %}
+
+{% block javascripts %}
+    {% block importmap %}{{ importmap(['app', 'server-list']) }}{% endblock %}
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 bg-light bg-gradient">
+            <h1><img src="{{asset('images/server.jpg')}}" width="100px"> <a href="{{path('app_server_list')}}" class="btn btn-primary">Go to servers list</a></h1>
+        </div>
+        <div class="col-md-6">
+        {{ form_start(form) }}
+            {{ form_row(form.file) }}
+            <button type="submit" class="btn btn-primary mt-3">Upload</button>
+        {{ form_end(form) }}
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>New file uploaded!</strong> {{ message }}
+            </div>
+            
+        {% endfor %}
+
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Error uploading file</strong> {{ message }}
+            </div>
+
+        {% endfor %}
+    </div>
+    </div>
+  </div>
+{% endblock %}

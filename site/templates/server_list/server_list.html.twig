@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Server list{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+{% endblock %}
+
+{% block javascripts %}
+    {% block importmap %}{{ importmap(['app', 'server-list']) }}{% endblock %}
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 bg-light bg-gradient">
+            <h1><img src="{{asset('images/server.jpg')}}" width="100px"> Available servers </h1>
+        </div>
+        <div class="col-md-3">
+            
+                <div>
+                    <label class="form-label" for="storageRange">Storage GB</label>
+                    <input type="text" class="js-range-slider autoUpdate" id="storageRange" name="storageRange" value="" />                
+                </div>
+
+                <div class="form-label">RAM size</div>
+                <div id="ramList"></div>
+
+                <div> 
+                    <label for="hddInput" class="form-label">Hardisk type</label>
+                    <select class="form-select autoUpdate" id="hddInput">
+                        <option value="" selected>Select HDD type</option>
+                        <option value="SAS">SAS</option>
+                        <option value="SATA">SATA</option>
+                        <option value="SSD">SSD</option>
+                    </select>
+                </div>
+
+                <div> 
+                    <label for="locationInput" class="form-label">Location</label>
+                    <select class="form-select autoUpdate" id="locationInput">
+                    </select>
+                </div>
+
+                <button id="submitBtnFilter" class="btn btn-primary mt-3">Search</button>
+            
+        </div>
+
+      <div class="col-md-9">
+        <table id="serverTable" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>RAM</th>
+                    <th>HDD</th>
+                    <th>HDDGB</th>
+                    <th>Location</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Model</th>
+                    <th>RAM</th>
+                    <th>HDD</th>
+                    <th>HDDGB</th>
+                    <th>Location</th>
+                    <th>Price</th>
+                </tr>
+            </tfoot>
+        </table>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
