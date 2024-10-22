@@ -1,7 +1,6 @@
 var dataSource;
 var ramList;
 
-
 $(function() {
     $.ajax({
         method: "GET",
@@ -55,8 +54,6 @@ function populateLocations(location){
     }
     $('#locationInput').append(option);
 }
-
-
 
 function populateRAM(ramList){
     var checkBoxItem = '';
